@@ -45,6 +45,8 @@
 		C36063A218EBDCE000F500EA /* NSData+Split.m in Sources */ = {isa = PBXBuildFile; fileRef = C36063A018EBDCE000F500EA /* NSData+Split.m */; };
 		C3F460FF18F43BE10009D503 /* ProjectSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F460FE18F43BE10009D503 /* ProjectSetting.m */; };
 		C3F4610018F43BE10009D503 /* ProjectSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F460FE18F43BE10009D503 /* ProjectSetting.m */; };
+		FA8AAF511C88D25100240B54 /* PluginPanelClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8AAF501C88D25100240B54 /* PluginPanelClient.m */; };
+		FA8AAF531C88D2ED00240B54 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FA8AAF521C88D2ED00240B54 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,9 @@
 		C36063A018EBDCE000F500EA /* NSData+Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Split.m"; sourceTree = "<group>"; };
 		C3F460FD18F43BE10009D503 /* ProjectSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSetting.h; sourceTree = "<group>"; };
 		C3F460FE18F43BE10009D503 /* ProjectSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSetting.m; sourceTree = "<group>"; };
+		FA8AAF4F1C88D25100240B54 /* PluginPanelClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PluginPanelClient.h; sourceTree = "<group>"; };
+		FA8AAF501C88D25100240B54 /* PluginPanelClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PluginPanelClient.m; sourceTree = "<group>"; };
+		FA8AAF521C88D2ED00240B54 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +123,7 @@
 		1F67ED321846E54F00E9E6AD = {
 			isa = PBXGroup;
 			children = (
+				FA8AAF4E1C88D25100240B54 /* PluginPanelClient */,
 				1F67ED421846E54F00E9E6AD /* XToDo */,
 				1FCB6E871851D45B002E6BC3 /* XToDoApp */,
 				1F67ED3D1846E54F00E9E6AD /* Frameworks */,
@@ -177,6 +183,7 @@
 		1F67ED431846E54F00E9E6AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FA8AAF521C88D2ED00240B54 /* icon.png */,
 				1F997740185227F500485D3F /* checkmark_off.tiff */,
 				1F997741185227F500485D3F /* checkmark_on.tiff */,
 				1F67ED441846E54F00E9E6AD /* XToDo-Info.plist */,
@@ -218,6 +225,15 @@
 				1FCB6E901851D45B002E6BC3 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA8AAF4E1C88D25100240B54 /* PluginPanelClient */ = {
+			isa = PBXGroup;
+			children = (
+				FA8AAF4F1C88D25100240B54 /* PluginPanelClient.h */,
+				FA8AAF501C88D25100240B54 /* PluginPanelClient.m */,
+			);
+			path = PluginPanelClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +310,7 @@
 				1F997744185227F500485D3F /* checkmark_on.tiff in Resources */,
 				1F997742185227F500485D3F /* checkmark_off.tiff in Resources */,
 				1FFB0F231851BDB200E97FA1 /* XToDoWindowController.xib in Resources */,
+				FA8AAF531C88D2ED00240B54 /* icon.png in Resources */,
 				1F5B2E5118471B0A003529EC /* find.sh in Resources */,
 				C338F4E118F4FD8700EDE66E /* PathEditViewController.xib in Resources */,
 				6EFEA8B01894757200FD9595 /* XToDoPreferencesWindowController.xib in Resources */,
@@ -324,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C36063A118EBDCE000F500EA /* NSData+Split.m in Sources */,
+				FA8AAF511C88D25100240B54 /* PluginPanelClient.m in Sources */,
 				814ABA731AD1A603004CD467 /* NSString+Additions.m in Sources */,
 				1F67ED4A1846E54F00E9E6AD /* XToDo.m in Sources */,
 				C338F4DE18F4FBAF00EDE66E /* PathEditViewController.m in Sources */,

@@ -9,8 +9,12 @@
 #import "XToDo.h"
 #import "XToDoModel.h"
 #import "XToDoWindowController.h"
+#import "PluginPanelClient.h"
 
 XToDo* sharedPlugin = nil;
+//TODO: as
+// FIXME: fff
+// TODO: asdas
 
 @interface XToDo ()
 @property (nonatomic, strong) XToDoWindowController* windowController;
@@ -43,8 +47,48 @@ XToDo* sharedPlugin = nil;
                                                  selector:@selector(applicationDidFinishLaunching:)
                                                      name:NSApplicationDidFinishLaunchingNotification
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(panelDidLoadNote:)
+                                                     name:PluginPanelDidLoadedWindowNotification
+                                                   object:nil];
     }
     return self;
+}
+
+- (void)panelDidLoadNote:(NSNotification *)note {
+    static NSImage *image = nil;
+    if (!image) {
+        image  = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:@"icon"]];
+    }
+    
+    if (self.windowController == nil) {
+        XToDoWindowController* wc = [[XToDoWindowController alloc] initWithWindowNibName:@"XToDoWindowController"];
+        self.windowController = wc;
+    }
+    
+    NSString* filePath = [[XToDoModel currentWorkspaceDocument].workspace.representingFilePath.fileURL path];
+    NSString* projectDir = [filePath stringByDeletingLastPathComponent];
+    NSString* projectName = [filePath lastPathComponent];
+    {
+        // register them as soon as possible
+        NSUserDefaults* prefs = [NSUserDefaults standardUserDefaults];
+        [prefs registerDefaults:@{
+                                  kXToDoTextSizePrefsKey : @(0),
+                                  kXToDoTagsKey : @[ @"TODO", @"FIXME", @"???", @"!!!" ],
+                                  }];
+    }
+    [XToDoModel cleanAllTempFiles];
+    
+    self.windowController.window.title = [[XToDoModel currentWorkspaceDocument].displayName stringByDeletingLastPathComponent];
+    //!!!: how about the path is nil?
+    [self.windowController setSearchRootDir:projectDir projectName:projectName];
+//    [self.windowController.window makeKeyAndOrderFront:nil];
+    [self.windowController refresh:nil];
+    
+    NSViewController *c = [NSViewController new];
+    c.view = self.windowController.listView;
+    DVTChoice *choice = [[NSClassFromString(@"DVTChoice") alloc] initWithTitle:@"TODO" toolTip:@"TODO" image:image representedObject:c];
+    PluginPanelAddPlugin(choice, [[note userInfo] objectForKey:PluginPanelWindowNotificationKey]);
 }
 
 

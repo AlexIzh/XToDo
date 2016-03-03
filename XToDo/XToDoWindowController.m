@@ -86,7 +86,6 @@ static NSImage *statusImageTodo;
 @end
 
 @interface XToDoWindowController () <NSOutlineViewDataSource, NSOutlineViewDelegate>
-@property (weak) IBOutlet NSOutlineView* listView;
 @property (weak) IBOutlet NSProgressIndicator* workingIndicator;
 @property () NSArray* types;
 @property () XToDoPreferencesWindowController* prefsController;

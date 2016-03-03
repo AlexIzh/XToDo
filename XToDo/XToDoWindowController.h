@@ -15,6 +15,7 @@
 @end
 
 @interface XToDoWindowController : NSWindowController
+@property (weak) IBOutlet NSOutlineView* listView;
 
 @property (nonatomic, retain) NSArray* items;
 
